@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { initialTickets } from "../data";
+import { initialTickets } from "@/app/data";
 
 const TicketsPage = () => {
   return (
