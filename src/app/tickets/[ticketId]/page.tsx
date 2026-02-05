@@ -1,4 +1,4 @@
-import { initialTickets } from "@/app/data";
+import { initialTickets } from "@/data";
 
 const TicketPage = async ({
   params,
