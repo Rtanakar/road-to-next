@@ -8,8 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { CircleCheck, FileText, Pencil } from "lucide-react";
+import Heading from "@/components/heading/Heading";
 
 // JavaScript object + dynamic key access
 // object[key] = us key ka value nikaalna
@@ -24,12 +24,10 @@ const TICKET_ICONS = {
 const TicketsPage = () => {
   return (
     <div className="flex flex-col flex-1 gap-y-8">
-      <div>
-        <h2 className="text-3xl font-bold tracking-tight">TicketsPage</h2>
-        <p className="text-sm text-gray-300">All your tickets at one place</p>
-      </div>
-
-      <Separator />
+      <Heading
+        title="TicketsPage"
+        description="All your tickets at one place"
+      />
 
       <div className="flex-1 flex flex-col items-center gap-y-4 animate-fade-in-top">
         {initialTickets.map((ticket) => (
