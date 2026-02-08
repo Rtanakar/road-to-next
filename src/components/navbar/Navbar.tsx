@@ -2,6 +2,7 @@ import { homePath, ticketsPath } from "@/paths";
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { Kanban } from "lucide-react";
+import ThemeSwitcher from "../theme/ThemeSwitcher";
 
 const Navbar = () => {
   return (
@@ -16,7 +17,9 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div>
+      <div className="flex items-center gap-x-2">
+        <ThemeSwitcher />
+
         <Link
           href={ticketsPath()}
           className={buttonVariants({ variant: "default" })}
