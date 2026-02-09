@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { TICKET_ICONS } from "../constants";
@@ -24,14 +22,12 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
     </Button>
   );
 
-  const handleDeleteTicket = async () => {
-    await deleteTicket(ticket.id);
-  };
-
   const deleteButton = (
-    <Button variant="outline" size="icon" onClick={handleDeleteTicket}>
-      <Trash className="size-4" />
-    </Button>
+    <form action={deleteTicket.bind(null, ticket.id)}>
+      <Button variant="outline" size="icon">
+        <Trash className="size-4" />
+      </Button>
+    </form>
   );
 
   return (
