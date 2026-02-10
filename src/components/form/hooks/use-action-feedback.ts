@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ActionState } from "../utils/to-action-state";
 
 interface OnArgs {
@@ -14,17 +14,22 @@ const useActionFeedback = (
   actionState: ActionState,
   options: useActionFeedbackProps,
 ) => {
+  const prevTimestamp = useRef(actionState.timestamp);
+
   useEffect(() => {
+    const isUpdate = prevTimestamp.current !== actionState.timestamp;
+    if (!isUpdate) return;
+
     if (actionState.status === "SUCCESS") {
-      // console.log(actionState.message);
       options.onSuccess?.({ actionState });
     }
 
     if (actionState.status === "ERROR") {
-      // console.log(actionState.message);
       options.onError?.({ actionState });
     }
-  }, [actionState, options]);
+
+    prevTimestamp.current = actionState.timestamp;
+  }, [actionState.timestamp, actionState, options]);
 };
 
 export default useActionFeedback;
