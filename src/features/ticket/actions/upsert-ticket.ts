@@ -43,5 +43,5 @@ export const upsertTicket = async (
     redirect(ticketPath(id));
   }
 
-  return { message: "Ticket Created" };
+  return { message: "Ticket Created", fieldErrors: {} };
 };
