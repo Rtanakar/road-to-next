@@ -3,6 +3,7 @@
 import {
   ActionState,
   fromErrorToActionState,
+  toActionState,
 } from "@/components/form/utils/to-action-state";
 import prisma from "@/lib/db";
 import { ticketPath, ticketsPath } from "@/paths";
@@ -43,5 +44,5 @@ export const upsertTicket = async (
     redirect(ticketPath(id));
   }
 
-  return { message: "Ticket Created", fieldErrors: {} };
+  return toActionState("SUCCESS", "Ticket Created");
 };
