@@ -3,7 +3,8 @@
 import { cookies } from "next/headers";
 
 export const getCookiesByKey = async (key: string) => {
-  const cookie = (await cookies()).get(key);
+  const cookieStore = await cookies();
+  const cookie = cookieStore.get(key);
 
   if (!cookie) {
     return null;
@@ -13,9 +14,11 @@ export const getCookiesByKey = async (key: string) => {
 };
 
 export const setCookieByKey = async (key: string, value: string) => {
-  (await cookies()).set(key, value);
+  const cookieStore = await cookies();
+  cookieStore.set(key, value);
 };
 
 export const deleteCookiesByKey = async (key: string) => {
-  (await cookies()).delete(key);
+  const cookieStore = await cookies();
+  cookieStore.delete(key);
 };
