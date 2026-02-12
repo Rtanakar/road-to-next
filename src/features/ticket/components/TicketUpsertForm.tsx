@@ -61,7 +61,7 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
 
       <div className="flex gap-x-2 mb-1">
         <div className="w-1/2">
-          <Label htmlFor="deadline">Deadline</Label>
+          <Label htmlFor="deadline" className="my-2">Deadline</Label>
           {/* <Input
             id="deadline"
             name="deadline"
@@ -85,7 +85,7 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
         </div>
 
         <div className="w-1/2">
-          <Label htmlFor="bounty">Bounty (₹)</Label>
+          <Label htmlFor="bounty" className="my-2">Bounty (₹)</Label>
           <Input
             id="bounty"
             name="bounty"
